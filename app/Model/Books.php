@@ -5,17 +5,21 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Books extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    public $table = 'Books';
+    public $table = 'books';
     protected $fillable = [
-        'book_id',
+        'id',
         'name',
+        'author',
         'year',
         'description',
         'count',
         'photo',
     ];
+
+
 }
