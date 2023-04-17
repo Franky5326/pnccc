@@ -46,4 +46,3 @@
         align-items: center;
         margin: 30px 0;
     }
-    select{
