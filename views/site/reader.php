@@ -30,7 +30,7 @@
                 <?php
                 foreach ($readers as $reader) {
                     ?>
-                <a href="<?= app()->route->getUrl('/profile') ?>"><div class="book">
+                <a href="<?= app()->route->getUrl('/profile') ?>?id=<?= $reader->id?>"><div class="book">
                         <div class="books_content">
                             <p>Имя пользователя: <?= $reader->first_name ?> <?= $reader->last_name ?></p>
                             <p>Номер читательского билета: <?= $reader->id ?></p>

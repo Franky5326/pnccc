@@ -22,7 +22,7 @@ class Reader{
     {
         $reader = Readers::all();
         $books = Books::all();
-        return (new View())->render('site.readers', ['readers' => $reader, 'books' => $books,]);
+        return (new View())->render('site.reader', ['readers' => $reader, 'books' => $books,]);
     }
 
     public function profileReader (Request $request): string

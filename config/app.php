@@ -2,13 +2,13 @@
 return [
     //Класс аутентификации
     'auth' => \Src\Auth\Auth::class,
-    'admin' => \Middlewares\AdminMiddleware::class,
-    'user' => \Middlewares\UserMiddleware::class,
     //Клас пользователя
     'identity' => \Model\User::class,
     //Классы для middleware
     'routeMiddleware' => [
         'auth' => \Middlewares\AuthMiddleware::class,
+        'admin' => \Middlewares\AdminMiddleware::class,
+        'user' => \Middlewares\UserMiddleware::class,
     ]
 ];
 
