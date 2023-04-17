@@ -6,7 +6,6 @@
             if (app()->auth::check()):
                 ?>
                 <div class="choice_inner">
-
                     <select name="readers">
                         <?php
                         foreach ($books as $book) {
@@ -23,20 +22,20 @@
             ?>
         </div>
     </div>
-
     <div class="books">
         <div class="container">
             <div class="books_inner">
                 <?php
                 foreach ($readers as $reader) {
                     ?>
-                <a href="<?= app()->route->getUrl('/profile') ?>?id=<?= $reader->id?>"><div class="book">
-                        <div class="books_content">
-                            <p>Имя пользователя: <?= $reader->first_name ?> <?= $reader->last_name ?></p>
-                            <p>Номер читательского билета: <?= $reader->id ?></p>
-                            <p>Номер телефона: <?= $reader->number ?></p>
-                        </div>
-                    </div></a>
+                    <a href="<?= app()->route->getUrl("/profile?id=$reader->id") ?>"><div class="book">
+                            <div class="books_content">
+                                <p>Имя пользователя: <?= $reader->first_name ?> <?= $reader->last_name ?></p>
+                                <p>Номер читательского билета: <?= $reader->id ?></p>
+                                <p>Номер телефона: <?= $reader->number ?></p>
+                            </div>
+
+                        </div></a>
                     <?php
                 }
                 ?>
@@ -61,7 +60,6 @@
     select{
         margin-right: 40px;
     }
-
     .book{
         border: 1px solid #808080;
         width: 500px;
@@ -69,9 +67,7 @@
         padding: 20px 30px;
 
     }
-    .date{
-        text-align: right;
-    }
+
     .books_content{
         width: 100%;
     }

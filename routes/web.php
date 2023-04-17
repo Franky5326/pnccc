@@ -15,3 +15,5 @@ Route::add(['GET', 'POST'], '/addreader', [Controller\Reader::class, 'addReader'
 Route::add('GET', '/readers', [Controller\Reader::class, 'readers'])->middleware('auth');
 Route::add(['GET', 'POST'], '/profile', [Controller\Reader::class, 'profileReader'])->middleware('auth');
 Route::add(['GET', 'POST'], '/listBook', [Controller\Reader::class, 'listReaderBook']);
+Route::add('GET', '/authors', [Controller\Author::class, 'authors']);
+
