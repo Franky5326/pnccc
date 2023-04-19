@@ -4,7 +4,6 @@
             <h3>Добавление сотрудника</h3>
         </div>
     </div>
-    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
@@ -13,16 +12,19 @@
                     <div class="form_item">
                         <label for="name">Имя</label>
                         <input id="name" name="name" type="text">
+                        <p class="Error"><?= $message['name'][0] ?? ''; ?></p>
 
                     </div>
                     <div class="form_item">
                         <label for="login">Логин</label>
                         <input id="login" name="login" type="text">
+                        <p class="Error"><?= $message['login'][0] ?? ''; ?></p>
 
                     </div>
                     <div class="form_item">
                         <label for="password">Пароль</label>
                         <input id="password" name="password" type="text">
+                        <p class="Error"><?= $message['password'][0] ?? ''; ?></p>
 
                     </div>
                     <div class="form_item">

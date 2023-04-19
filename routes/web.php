@@ -9,7 +9,7 @@ Route::add('GET', '/logout', [Controller\Site::class, 'logout'])->middleware('au
 Route::add(['GET', 'POST'], '/books', [Controller\Book::class, 'books']);
 Route::add(['GET', 'POST'], '/addbook', [Controller\Book::class, 'addBook'])->middleware('auth');
 Route::add(['GET', 'POST'], '/editbook', [Controller\Book::class, 'editBook'])->middleware('auth');
-
+Route::add(['GET', 'POST'], '/bookReting', [Controller\Book::class, 'bookRating']);
 Route::add(['GET', 'POST'], '/adduserbook', [Controller\UserBook::class, 'addUserBook'])->middleware('admin','auth');
 Route::add(['GET', 'POST'], '/addreader', [Controller\Reader::class, 'addReader'])->middleware('admin','auth');
 Route::add(['GET', 'POST'], '/readers', [Controller\Reader::class, 'readers'])->middleware('auth');

@@ -26,7 +26,7 @@ class UserBook{
 
             if($validator->fails()){
                 return new View('forms.addUserBook',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'readers' => $readers, 'books' => $books]);
+                    ['message' => $validator->errors(), 'readers' => $readers, 'books' => $books]);
             }
             if( UserBooks::create($request->all())){
                 app()->route->redirect('/books');

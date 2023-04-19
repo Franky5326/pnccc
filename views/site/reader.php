@@ -81,7 +81,7 @@
     button{
         padding: 3px 30px;
         margin-left: 40px;
-        background-color: lightblue;
+        background-color: #808080;
         border: 1px solid darkslategrey;
     }
 </style>

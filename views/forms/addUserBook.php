@@ -4,13 +4,13 @@
             <h3>Добавление книги читателю</h3>
         </div>
     </div>
-    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
                 <div class="form_inner">
                     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
+                        <p>Выбор читателя</p>
                         <select name="library_card_id">
                             <?php
                             foreach ($readers as $reader) {
@@ -21,8 +21,8 @@
                             ?>
                         </select>
                     </div>
-                    <p>Выбор читателя</p>
                     <div class="form_item">
+                        <p>Выбор книги</p>
                         <select name="book_id">
                             <?php
                             foreach ($books as $book) {
@@ -34,22 +34,24 @@
                             }
                             ?>
                         </select>
-                        <p>Выбор книги</p>
 
                     </div>
                     <div class="form_item">
                         <label for="date_of_issue">Дата выдачи</label>
                         <input id="date_of_issue" name="date_of_issue" type="date">
+                        <p class="Error"><?= $message['date_of_issue'][0] ?? ''; ?></p>
 
                     </div>
                     <div class="form_item">
                         <label for="delivery_date">Дата сдачи</label>
-                        <input id="delivery_date" name="delivery_date" type="date">
+                        <input class="input" id="delivery_date" name="delivery_date" type="date">
+                        <p class="Error"><?= $message['delivery_date'][0] ?? ''; ?></p>
 
                     </div>
 
-                    <button class="form_submit">Добавить</button>
+
                 </div>
+                <button class="form_submit">Добавить</button>
             </form>
         </div>
     </div>
@@ -73,19 +75,22 @@
     }
     form{
         margin: 0 auto;
-        max-width: 300px;
+        /*max-width: 400px;*/
+        width: 450px;
+        position: relative;
     }
     .form_inner{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        width: 200px;
-        margin-bottom: 100px;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: 20px;
 
     }
     .form_item{
-        margin: 10px 0 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0 0 30px;
     }
     .form_item_photo{
         margin: 10px 0 0 10px;
@@ -96,22 +101,26 @@
     }
     input{
         padding: 5px 30px;
+        margin-left:45px ;
     }
-    .form_item_date{
-        padding: 5px 60px;
+    .input{
+        padding: 5px 30px;
+        margin-left:55px ;
     }
     textarea{
         resize: none;
     }
     .form_submit{
-        margin: 20px auto;
-        margin-right: 5px;
+        margin: 0 auto;
         padding: 5px 30px;
         background-color: #808080;
         border: 1px solid #808080;
+        position: absolute;
+        z-index: 1;
+        bottom: -50px;
+        left: 150px;
     }
     .Error{
-        margin-bottom: 15px;
         text-align: center;
         color: red;
 

@@ -25,6 +25,18 @@ class Book{
         }
         return (new View())->render('site.books', ['readers' => $readers,  'books' => $books, 'bookq' => $bookq]);
     }
+    public function bookRating(Request $request): string
+    {
+        $books = Books::all();
+        $readers = Readers::all();
+        $arr = [];
+        foreach ($books as $book) {
+            $reting = count(UserBooks::where('book_id', $book->id)->get());
+            array_push($arr, $reting);
+
+        }
+        return (new View())->render('site.bookReting', ['readers' => $readers,  'books' => $books, 'arr'=>$arr]);
+    }
 
     public function addBook(Request $request): string
     {
@@ -43,7 +55,7 @@ class Book{
 
             if($validator->fails()){
                 return new View('forms.addBook',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             }
             if (Books::create($request->all())){
                 app()->route->redirect('/books');
@@ -58,18 +70,18 @@ class Book{
         $books = Books::where('id', $request->id)->get();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                '$request->name' => ['required'],
-                '$request->author' => ['required'],
-                '$request->count' => ['required'],
-                '$request->year' => ['required'],
-                '$request->description' => ['required'],
+                'name' => ['required'],
+                'author' => ['required'],
+                'year' => ['required'],
+                'description' => ['required'],
+                'count' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
             ]);
 
             if($validator->fails()){
                 return new View('forms.editBook',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors(), 'books' => $books]);
             }
             $books[0]->count = $request->count;
             $books[0]->author = $request->author;

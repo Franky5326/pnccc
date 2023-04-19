@@ -27,11 +27,13 @@
                     else:
                         ?>
                         <a class="header_a" href="<?= app()->route->getUrl('/addreader') ?>">Добавить читателя</a>
+                        <a class="header_a" href="<?= app()->route->getUrl('/adduserbook') ?>">Добавить книгу читателю</a>
                     <?php
                     endif;
                     ?>
                     <a class="header_a" href="<?= app()->route->getUrl('/readers')?>">Читатели</a>
                     <a class="header_a" href="<?= app()->route->getUrl('/addbook')?>">Добавить книгу</a>
+                    <a class="header_a" href="<?= app()->route->getUrl('/bookReting')?>">Рейтинг книг</a>
                     <a class="header_a" href="<?= app()->route->getUrl('/logout')?>">Выход</a>
                 <?php
                 endif;
@@ -67,7 +69,7 @@
     }
 
     .container {
-        width: 1200px;
+        width: 1300px;
         margin: 0 auto;
     }
 

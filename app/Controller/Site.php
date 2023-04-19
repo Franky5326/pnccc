@@ -25,7 +25,7 @@ class Site
 
             if($validator->fails()){
                 return new View('forms.signup',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             }
             if( User::create($request->all())){
                 app()->route->redirect('/login');

@@ -25,7 +25,7 @@ class Reader{
 
             if($validator->fails()){
                 return new View('forms.addReader',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             }
             if( Readers::create($request->all())){
                 app()->route->redirect('/books');

@@ -4,7 +4,6 @@
             <h3>Добавление пользователя</h3>
         </div>
     </div>
-    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
@@ -13,10 +12,12 @@
                     <div class="form_item">
                         <label for="first_name">Имя</label>
                         <input id="first_name" name="first_name" type="text">
+                        <p class="Error"><?= $message['first_name'][0] ?? ''; ?></p>
                     </div>
                     <div class="form_item">
                         <label for="last_name">Фамилия</label>
                         <input id="last_name" name="last_name" type="text">
+                        <p class="Error"><?= $message['last_name'][0] ?? ''; ?></p>
                     </div>
                     <div class="form_item">
                         <label for="patronymic">Отчество</label>
@@ -25,10 +26,12 @@
                     <div class="form_item">
                         <label for="address">Адрес</label>
                         <input id="address" name="address" type="text">
+                        <p class="Error"><?= $message['address'][0] ?? ''; ?></p>
                     </div>
                     <div class="form_item">
                         <label for="number">Номер</label>
                         <input id="number" name="number" type="number">
+                        <p class="Error"><?= $message['number'][0] ?? ''; ?></p>
                     </div>
                     <button class="form_submit">Добавить</button>
                 </div>
@@ -91,7 +94,6 @@
         border: 1px solid #808080;
     }
     .Error{
-        margin-bottom: 15px;
         text-align: center;
         color: red;
 
