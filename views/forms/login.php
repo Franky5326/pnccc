@@ -13,7 +13,7 @@
         <div class="container">
             <form method="post">
                 <div class="form_inner">
-
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="login">Логин</label>
                         <input id="login" name="login" type="text">

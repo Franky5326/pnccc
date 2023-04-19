@@ -2,14 +2,14 @@
     <div class="choice">
         <div class="container">
             <h3>Добавление сотрудника</h3>
-            <p class="Error"><?= $message ?? ''; ?></p>
         </div>
     </div>
-
+    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
                 <div class="form_inner">
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="name">Имя</label>
                         <input id="name" name="name" type="text">
@@ -23,6 +23,11 @@
                     <div class="form_item">
                         <label for="password">Пароль</label>
                         <input id="password" name="password" type="text">
+
+                    </div>
+                    <div class="form_item">
+                        <label for="role">Роль</label>
+                        <input id="role" name="role" type="text">
 
                     </div>
 
@@ -89,5 +94,11 @@
         padding: 5px 30px;
         background-color: #808080;
         border: 1px solid #808080;
+    }
+    .Error{
+        margin-bottom: 15px;
+        text-align: center;
+        color: red;
+
     }
 </style>

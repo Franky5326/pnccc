@@ -2,7 +2,7 @@
 
 use Src\Route;
 
-Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup'])->middleware('auth','user');
+Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup'])->middleware('admin');
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout'])->middleware('auth');
 
