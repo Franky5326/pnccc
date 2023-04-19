@@ -4,10 +4,12 @@
             <h3>Добавление книги</h3>
         </div>
     </div>
+    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
                 <div class="form_inner">
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="name">Название</label>
                         <input id="name" name="name" type="text">
@@ -88,5 +90,11 @@
         padding: 5px 30px;
         background-color: #808080;
         border: 1px solid #808080;
+    }
+    .Error{
+        margin-bottom: 15px;
+        text-align: center;
+        color: red;
+
     }
 </style>

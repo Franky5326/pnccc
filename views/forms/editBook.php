@@ -4,11 +4,12 @@
             <h3>Добавление книги</h3>
         </div>
     </div>
-
+    <p class="Error"><?= $message ?? ''; ?></p>
     <div class="forms">
         <div class="container">
             <form action="" method="post">
                 <div class="form_inner">
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="name">Название</label>
                         <input id="name" value="<?= $books[0]->name?>" name="name" type="text">

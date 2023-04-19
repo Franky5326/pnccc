@@ -8,6 +8,7 @@
         <div class="container">
             <form  method="post">
                 <div class="form_inner">
+                    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="username">Читательский билет<input id="username" name="id_read" type="text"></label>
                     </div>

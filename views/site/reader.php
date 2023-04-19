@@ -5,18 +5,22 @@
             <?php
             if (app()->auth::check()):
                 ?>
-                <div class="choice_inner">
-                    <select name="readers">
-                        <?php
-                        foreach ($books as $book) {
-                            ?>
-                            <option value="<?= $book->name?>"><?= $book->name?></option>
+                <form method="post">
+                    <div class="choice_inner">
+                        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+                        <select name="book_id">
                             <?php
-                        }
-                        ?>
-                    </select>
-                    <p>Выбор книги</p>
-                </div>
+                            foreach ($books as $book) {
+                                ?>
+                                <option value="<?= $book->id?>"><?= $book->name?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <p>Выбор книги</p>
+                        <button>Найти</button>
+                    </div>
+                </form>
             <?php
             endif;
             ?>
@@ -67,12 +71,17 @@
         padding: 20px 30px;
 
     }
-
     .books_content{
         width: 100%;
     }
     img{
         width: 230px;
         margin-left: 100px;
+    }
+    button{
+        padding: 3px 30px;
+        margin-left: 40px;
+        background-color: lightblue;
+        border: 1px solid darkslategrey;
     }
 </style>
