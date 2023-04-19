@@ -7,7 +7,13 @@ return [
     //Классы для middleware
     'validators' => [
         'required' => \Validator\RequireValidator::class,
-        'unique' => \Validator\UniqueValidator::class
+        'unique' => \Validator\UniqueValidator::class,
+        'number' => \Validator\NumbersValidator::class,
+        'cyrillic' => \Validator\CyrillicValidator::class,
+        'all' => \Validator\AllValidator::class,
+        'image' => \Validator\ImageValidator::class,
+        'year' => \Validator\YearValidator::class,
+        'latinNumber' => \Validator\LatinNumberValidator::class,
     ],
     'routeAppMiddleware' => [
         'trim' => \Middlewares\TrimMiddleware::class,

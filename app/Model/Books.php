@@ -20,6 +20,12 @@ class Books extends Model
         'count',
         'photo',
     ];
+    public function photo($img)
+    {
+        $photo = time() . $img['name'] ;
+        $this->photo = $photo;
+        move_uploaded_file($img['tmp_name'], __DIR__ . '/../../public/assets/img/' . $photo);
+    }
 
 
 }

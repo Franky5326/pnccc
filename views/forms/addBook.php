@@ -7,7 +7,7 @@
 
     <div class="forms">
         <div class="container">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form_inner">
                     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">

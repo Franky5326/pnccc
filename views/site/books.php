@@ -34,7 +34,7 @@
             foreach ($books as $key=>$book) {
                 ?>
                 <div class="books_item">
-                    <div class="div"></div>
+                    <img class="div" src="../../PnCC/public/assets/img/<?= $book->photo?>" alt="img">
                     <div class="books_content">
                         <?php
                         if (app()->auth::check()):

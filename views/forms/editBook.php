@@ -6,7 +6,7 @@
     </div>
     <div class="forms">
         <div class="container">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form_inner">
                     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
@@ -30,6 +30,11 @@
                         <label for="count">Количество</label>
                         <input id="count" value="<?= $books[0]->count?>" name="count" type="number">
                         <p class="Error"><?= $message['count'][0] ?? ''; ?></p>
+                    </div>
+                    <div class="form_item">
+                        <label for="photo">Картинка</label>
+                        <input id="photo" name="photo" type="file">
+                        <p class="Error"><?= $message['photo'][0] ?? ''; ?></p>
                     </div>
                     <div class="form_item">
                         <label for="description">Анотация</label>

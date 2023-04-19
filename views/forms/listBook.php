@@ -11,6 +11,7 @@
                     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                     <div class="form_item">
                         <label for="username">Читательский билет<input id="username" name="id_read" type="text"></label>
+                        <p class="Error"><?= $message['id_read'][0] ?? ''; ?></p>
                     </div>
                     <button class="form_submit">Ввести</button>
                 </div>
@@ -37,7 +38,7 @@
 
                             <div class="books_item">
 
-                                <div class="div"></div>
+                                <img class="div" src="../../PnCC/public/assets/img/<?= $book->book->photo?>" alt="img">
                                 <div class="books_content">
                                     <p><?= $book->book->name ?></p>
                                     <p><?= $book->book->author ?></p>
@@ -166,5 +167,10 @@
     }
     .book_data{
         margin-top: 20px;
+    }
+    .Error {
+        margin-bottom: 15px;
+        text-align: center;
+        color: red;
     }
 </style>

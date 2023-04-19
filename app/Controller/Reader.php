@@ -15,12 +15,15 @@ class Reader{
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
-                'first_name' => ['required'],
-                'last_name' => ['required'],
-                'address' => ['required'],
-                'number' => ['required'],
+                'first_name' => ['required', 'cyrillic'],
+                'last_name' => ['required', 'cyrillic'],
+                'address' => ['required', 'all'],
+                'number' => ['required', 'number'],
             ], [
                 'required' => 'Поле :field пусто',
+                'all' => 'Поле :field может состоять из кириллицы, латиницы и цифр',
+                'number' => 'Поле :field должно состоять из цифр',
+                'cyrillic' => 'Поле :field может состоять из кириллицы и латиницы',
             ]);
 
             if($validator->fails()){
@@ -64,9 +67,20 @@ class Reader{
         }
         if ($request->method === 'POST') {
             $reader = Readers::where('id', $request->id_read)->get();
+            $validator = new Validator($request->all(), [
+                'id_read' => ['required', 'number'],
+
+            ], [
+                'required' => 'Поле :field пусто',
+                'number' => 'Поле :field должно состоять из цифр',
+            ]);
+
+            if($validator->fails()){
+                return new View('forms.listBook',
+                    ['message' => $validator->errors()]);
+            }
             return (new View())->render('forms.listBook', ['readers' => $reader, 'request' => $request]);
         }
-
     }
 
 }
