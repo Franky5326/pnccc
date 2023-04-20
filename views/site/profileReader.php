@@ -1,4 +1,4 @@
-<div class="choice">
+<div class="choice choice_inner">
     <div class="container">
         <h3><?= $readers[0]->first_name?> <?= $readers[0]->last_name?></h3>
     </div>
@@ -6,7 +6,7 @@
 
 <div class="books">
     <div class="container">
-        <div class="books_inner">
+        <div class="choice_inner">
             <?php
             foreach ($readers[0]->readBook as $book) {
                 ?>
