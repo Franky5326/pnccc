@@ -22,10 +22,13 @@
                 else:
                     if (app()->auth::checkRole()):
                         ?>
-                        <a class="header_a" href="<?= app()->route->getUrl('/signup') ?>">Добавить сотрудника</a>
+
+                        <a class="header_a" href="<?= app()->route->getUrl('/addreader') ?>">Добавить читателя</a>
+                        <a class="header_a" href="<?= app()->route->getUrl('/adduserbook') ?>">Добавить книгу читателю</a>
                     <?php
                     else:
                         ?>
+                        <a class="header_a" href="<?= app()->route->getUrl('/signup') ?>">Добавить сотрудника</a>
                         <a class="header_a" href="<?= app()->route->getUrl('/addreader') ?>">Добавить читателя</a>
                         <a class="header_a" href="<?= app()->route->getUrl('/adduserbook') ?>">Добавить книгу читателю</a>
                     <?php
