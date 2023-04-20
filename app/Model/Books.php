@@ -25,6 +25,8 @@ class Books extends Model
         $photo = time() . $img['name'] ;
         $this->photo = $photo;
         move_uploaded_file($img['tmp_name'], __DIR__ . '/../../public/assets/img/' . $photo);
+
+
     }
 
 

@@ -11,7 +11,7 @@
             foreach ($readers[0]->readBook as $book) {
                 ?>
                 <div class="books_item">
-                    <img class="div" src="../../PnCC/public/assets/img/<?= $book->book->photo?>" alt="img">
+                    <img class="div" src="../../pop-it-mvc/public/assets/img/<?= $book->book->photo?>" alt="img">
                     <div class="books_content">
                         <p><?= $book->book->name ?></p>
                         <p><?= $book->book->author ?></p>
