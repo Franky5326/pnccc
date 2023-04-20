@@ -2,7 +2,7 @@
 
 namespace Src\Auth;
 
-use Src\Session;
+use function Collect\collection;
 
 class Auth
 {
@@ -22,8 +22,8 @@ class Auth
     public static function login(IdentityInterface $user): void
     {
         self::$user = $user;
-        Session::set('id', self::$user->getId());
-        Session::set('role', self::$user->getRole());
+        collection()->set('id', self::$user->getId());
+        collection()->set('role', self::$user->getRole());
     }
 
     //Аутентификация пользователя и вход по учетным данным
@@ -38,21 +38,21 @@ class Auth
     public static function generateCSRF(): string
     {
         $token = md5(time());
-        Session::set('csrf_token', $token);
+        collection()->set('csrf_token', $token);
         return $token;
     }
 
 
     public static function chRole()
     {
-        $role = Session::get('role') ?? 0;
+        $role = collection()->get('role') ?? 0;
         return $role;
     }
 
     //Возврат текущего аутентифицированного пользователя
     public static function user()
     {
-        $id = Session::get('id') ?? 0;
+        $id = collection()->get('id') ?? 0;
         return self::$user->findIdentity($id);
     }
 
@@ -77,7 +77,7 @@ class Auth
     //Выход текущего пользователя
     public static function logout(): bool
     {
-        Session::clear('id');
+        collection()->clear('id');
         return true;
     }
 
