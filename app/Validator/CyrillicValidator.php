@@ -11,6 +11,6 @@ class CyrillicValidator extends AbstractValidator
 
     public function rule(): bool
     {
-        return preg_match('/^[а-яa-z]++$/ui',$this->value);
+        return !preg_match('/[^a-zа-яё ]/iu',$this->value);
     }
 }

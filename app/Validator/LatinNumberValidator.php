@@ -11,6 +11,6 @@ class LatinNumberValidator extends AbstractValidator
 
     public function rule(): bool
     {
-        return preg_match('/^[a-z0-9]++$/ui',$this->value);
+        return !preg_match('/^[a-z0-9]++$/ui',$this->value);
     }
 }
